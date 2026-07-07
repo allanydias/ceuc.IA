@@ -4,19 +4,22 @@ Aplicação que gera uma trilha de carreira personalizada para mães, cruzando
 respostas de um onboarding com um modelo de IA (Groq), feita para o HackaWoman 2026.
 
 ## Estrutura
+
+```
 Ceuc.IA/
 ├── frontend/
 │   ├── index.html      # telas da aplicação (splash, login, perguntas, resultado, cronograma)
 │   ├── styles.css      # identidade visual (roxo/lilás, fonte Inter)
 │   └── app.js          # lógica de onboarding e chamadas à API
 └── backend/
-├── server.js        # servidor Node.js + Express (API REST)
-├── trilhaEngine.js   # motor de geração da trilha via IA (Groq)
-├── prisma/
-│   └── schema.prisma # modelo do banco (User, QuestionnaireResponse, CareerPath)
-├── prisma.config.ts  # configuração do Prisma 7 (datasource, migrations)
-├── package.json
-└── .env.exemplo      # modelo de variáveis de ambiente (sem valores reais)
+    ├── server.js         # servidor Node.js + Express (API REST)
+    ├── trilhaEngine.js    # motor de geração da trilha via IA (Groq)
+    ├── prisma/
+    │   └── schema.prisma  # modelo do banco (User, QuestionnaireResponse, CareerPath)
+    ├── prisma.config.ts   # configuração do Prisma 7 (datasource, migrations)
+    ├── package.json
+    └── .env.exemplo       # modelo de variáveis de ambiente (sem valores reais)
+```
 
 ## Tecnologias
 
@@ -38,10 +41,13 @@ Ceuc.IA/
 ### 2. Configurar variáveis de ambiente
 
 Dentro de `backend/`, crie um arquivo `.env` baseado no `.env.exemplo`:
+
+```
 DATABASE_URL="postgresql://usuario:senha@host/neondb?sslmode=require"
 GROQ_API_KEY="gsk_sua_chave_aqui"
 JWT_SECRET="uma_frase_secreta_qualquer"
 PORT=3001
+```
 
 ### 3. Instalar dependências e preparar o banco
 
@@ -89,7 +95,3 @@ o banco via IP privado). Nesse cenário, as migrations são aplicadas com:
 npx prisma migrate deploy
 ```
 
-## Status do projeto
-
-Protótipo funcional de ponta a ponta: cadastro/login, onboarding, geração de trilha
-via IA e persistência em banco PostgreSQL.
